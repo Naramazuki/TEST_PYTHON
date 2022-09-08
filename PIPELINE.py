@@ -36,14 +36,13 @@ files=os.listdir(root) # je recupère la liste des fichiers je compte les lire u
 
 
 
-
     
 #Traitement des données
 
-clinical_trials=extract(files[1].split('.')[1],files[1],root)
-drugs=extract(files[2].split('.')[1],files[2],root)
-pubmed_csv=extract(files[4].split('.')[1],files[4],root)
-pubmed_json=extract(files[5].split('.')[1],files[5],root)
+clinical_trials=extract(files[2].split('.')[1],files[2],root)
+drugs=extract(files[3].split('.')[1],files[3],root)
+pubmed_csv=extract(files[5].split('.')[1],files[5],root)
+pubmed_json=extract(files[6].split('.')[1],files[6],root)
 
 
 def nettoy(categorie):         # fontion verifie la présence de drug dans les titres de publication et et les journaux
@@ -100,7 +99,7 @@ def nettoy(categorie):         # fontion verifie la présence de drug dans les t
     
 
 list_gestion=nettoy("title")
-print(list_gestion[0])
+
 with open(os.path.join(root, "sortie.json"), "w") as file:
     a=json.dumps(list_gestion[0])
     
